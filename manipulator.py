@@ -19,14 +19,6 @@ class manipulator:
         # push the new value for total energy produced to the front end
         print('Updated: '.format(self.total_kwh))  # TODO: REMOVE
 
-    # Allows the price of energy to be updated by the admin
-    def update_price(self, new_price):
-        self.price_per_kwh = new_price
-        ''' 
-        May want to allow total cost to remain unchanged, only allowing the updated price to affect the energy 
-        collected after the price is updated.
-        '''
-
     # Method to take the total and the price of energy and calculate the total amount of money saved so far
     def update_money_saved(self):
         '''

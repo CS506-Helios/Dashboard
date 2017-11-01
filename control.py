@@ -56,3 +56,11 @@ class Controller:
         '''
         print('implement update_admin_settings') # TODO: REMOVE
 
+    # Allows the price of energy to be updated by the admin
+    def update_price(self, new_price):
+        price_per_kwh = new_price
+        ''' 
+        May want to allow total cost to remain unchanged, only allowing the updated price to affect the energy 
+        collected after the price is updated.
+        '''
+
