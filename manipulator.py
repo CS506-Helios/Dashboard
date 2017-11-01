@@ -40,3 +40,17 @@ class manipulator:
     def get_current(self):
         current = 0 # TODO: replace with query to DB to get the data since the last update
         return current
+
+    '''
+    This function is used to calculate the "energy fact" that will be saved. The admin will have the ability to change
+    the exact nature of the fact, but the calculation will be done here
+    '''
+    def energy_fact(self, fact_unit, fact_power_requirement):
+        return fact_power_requirement * self.total_kwh
+
+    '''
+    Calculate the percent of the building's required energy use that is eliminated by the energy produced by the solar
+    panels
+    '''
+    def gauge_percent_calculator(self, building_consumption, energy_produced):
+        return energy_produced/building_consumption
