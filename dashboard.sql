@@ -3,7 +3,7 @@ CREATE DATABASE HeliosDashboard;
 CREATE TABLE Energy
 (
 --Timestamp will be updated when a row is updated every 10 minutes
-Timestamp TIMESTAMP,
+Timestamp datetime,
 EnrgyInterval int
 );
 
