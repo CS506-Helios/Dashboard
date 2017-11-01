@@ -41,15 +41,10 @@ class Controller:
     def login(username, password):
         '''
         Look up  username in SQL Database and check that the password for that username entry matches
-        the password provided
+        the password provided. This will likely be implemented by using the Webdriver library
         '''
-        '''
-        if in_database(username):
-            if pass_match(username, password):
-                go to admin page
-        else 
-            display(invalid username/password
-        '''
+
+
         print('implement login') # TODO: REMOVE
 
     # Parses updates from the dashboard editor and updates the values in the database
