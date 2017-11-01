@@ -8,7 +8,7 @@ class Controller:
         Given the set default timescale, query the database and forward that data to the websocket, for the user to view
         :return:
         '''
-        print('implement open_channel')
+        print('implement open_channel') # REMOVE
 
     # Push updated data to all websocket clients every ten minutes
     def update_channels(self):
@@ -17,7 +17,7 @@ class Controller:
         new information
         :return:
         '''
-        print('implement update_channels')
+        print('implement update_channels') # REMOVE
 
     # Query SQL database for data in the given timescale.
     def get_data (timescale):
@@ -26,7 +26,7 @@ class Controller:
         specified period
         :return:
         '''
-        print('implement get_data')
+        print('implement get_data') # REMOVE
 
     # Responds to a client's request to change the timescale that they are viewing
     def change_timescale(new_timescale):
@@ -37,7 +37,7 @@ class Controller:
             remain unaltered
         :return:
         '''
-        print('implement chenge_timescale')
+        print('implement chenge_timescale') # REMOVE
 
     # Allows admins to login
     def login(username, password):
@@ -52,7 +52,7 @@ class Controller:
         else 
             display(invalid username/password
         '''
-        print('implement login')
+        print('implement login') # REMOVE
 
     # Parses updates from the dashboard editor and updates the values in the database
     def update_admin_settings(self):
@@ -62,5 +62,5 @@ class Controller:
         save to database (only save if values are different)
         :return:
         '''
-        print('implement update_admin_settings')
+        print('implement update_admin_settings') # REMOVE
 
