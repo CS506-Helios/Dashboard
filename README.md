@@ -41,6 +41,7 @@ We need to add data together to get the total amount of solar energy produced.
 We wrote Python programs for scraping the data, it requires these python modules to be installed: BeautifulSoup, selenium, chromedriver.
 
 Command Line: 
+
 $pip install beautifulsoup4
 
 $pip install -U selenium
@@ -52,6 +53,7 @@ However, since the website has dynamic contents with javascript objects, it alwa
 
 
 (3) control.py & manipulator.py 
+
 These files do not need to run, as they just contain a library of functions that will be used by other parts of the app. To compile the files enter the following commands:
 
 (assuming you've cloned the project from git)
