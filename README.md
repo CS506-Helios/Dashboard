@@ -19,6 +19,8 @@ Tag a branch or revision in your repository to identify the code you want to sub
 
 
 
+
+
 Front end for solar dashboard
 
 You must have node installed to continue! If you do not, please install node from their website : http://nodejs.org/
@@ -31,7 +33,7 @@ npm install -g grunt-cli
 
 npm install -g bower
 
-git clone https://github.com/mrkhan2/heliosDash.git
+git clone https://github.com/CS506-Helios/Dashboard.git
 
 cd frontEnd
 
