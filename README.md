@@ -3,9 +3,12 @@
 1. Instruction
 
 2. Run and Complie Command
+
 (1) Front-end
 
-(2) Intermediate Python
+(2) Data Scraping
+
+Intermediate Python
 
 (3) SQL Database
 Compiling and running SQL code are not 
