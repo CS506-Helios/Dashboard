@@ -1,34 +1,49 @@
 #This has been created by Ben
 class manipulator:
+
     def __init__(self):
-        self.total_kwh = 0
-        self.time = 0
+        self.total_kwh = 0 # The total amount of energy produced
         self.price_per_kwh = 0
-        self.money_saved = 0
+        self.money_saved = 0 # The amount of money saved on energy by the panel
 
-    # Method to get updates from the database after a given time period
+    # Method to get updates from the database automatically every ten minutes
     def update_total(self):
-        print('Current: '.format(self.total_kwh))  # remove print
-        self.total_kwh = self.total_kwh + 0  # get the new information from the database to add
-        # push the new value for total energy produced to the front end
-        print('Updated: '.format(self.total_kwh))  # remove print
-
-    # Allows the price of energy to be updated by the admin
-    def update_price(self, new_price):
-        self.price_per_kwh = new_price
-        ''' 
-        May want to allow total cost to remain unchanged, only allowing the updated price to affect the energy 
-        collected after the price is updated.
         '''
+        Implementation should allow for the total to update every ten minutes automatically
+        The updated total_kwh value will be forwarded using the update_channels method of control.py.
+        This way the control can perform all the websocket interaction, and needs only to call this method. contributor
+                '''
+        recent = self.get_current() #variable to hold the amount of energy
+        print('Current: '.format(self.total_kwh))  # TODO: REMOVE
+        self.total_kwh += recent
+        self.update_money_saved() # Update the total money saved based on the update
+        # push the new value for total energy produced to the front end
+        print('Updated: '.format(self.total_kwh))  # TODO: REMOVE
 
     # Method to take the total and the price of energy and calculate the total amount of money saved so far
     def update_money_saved(self):
-        total = self.total_kwh
-        self.money_saved += (total + self.total_kwh)  * self.price_per_kwh
-        # Push the new value for money saved to the front end and server
+        '''
+        Updates the total amount of money saved and passes the information to control.py in order to update the
+        front end and saves the info to the DB
+        '''
+        self.money_saved += self.price_per_kwh * self.get_current()
+        # TODO: Push the new value for money saved to the front end and server
 
     # Method used to get an estimate of the current energy being produced for the gauge panel
     def get_current(self):
-        current = self.total_kwh - 0
-        # Replace the 0 above with a query to the database to get the total from the panels before the latest update
-        # Push the value 'current' to the front end to be used as the value displayed by the gauge panel
+        current = 0 # TODO: replace with query to DB to get the data since the last update
+        return current
+
+    '''
+    This function is used to calculate the "energy fact" that will be saved. The admin will have the ability to change
+    the exact nature of the fact, but the calculation will be done here
+    '''
+    def energy_fact(self, fact_unit, fact_power_requirement):
+        return fact_power_requirement * self.total_kwh
+
+    '''
+    Calculate the percent of the building's required energy use that is eliminated by the energy produced by the solar
+    panels
+    '''
+    def gauge_percent_calculator(self, building_consumption, energy_produced):
+        return energy_produced/building_consumption
