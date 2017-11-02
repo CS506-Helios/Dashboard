@@ -40,7 +40,7 @@ There are two websites for data scraping. These websites contain solar energy in
 We need to add data together to get the total amount of solar energy produced. 
 We wrote Python programs for scraping the data, it requires these python modules to be installed: BeautifulSoup, selenium, chromedriver.
 
-However, since the website has dynamic contents with javascript objects, it always redirect to another page of the company. This issue makes the program incompleted. After consulting with the TA, we decided to push the data scraping part to iteration 2 and rewrite the code using Java to solve the issue with the session timeout.
+However, since the website has dynamic contents with javascript objects, it always redirect to another page of the company. This issue makes the program incompleted. After consulting with the TA, we decided to push the data scraping part to iteration 2 and rewrite the code using Java to solve the issue of session timeout.
 
 (3) Intermediate Python
 
