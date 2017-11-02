@@ -43,6 +43,13 @@ We wrote Python programs for scraping the data, it requires these python modules
 However, since the website has dynamic contents with javascript objects, it always redirect to another page of the company. This issue makes the program incompleted. After consulting with the TA, we decided to push the data scraping part to iteration 2 and rewrite the code using Java to solve the issue of session timeout.
 
 (3) Intermediate Python
+The intermediate python does not need to run, as it is just a library of functions that will be used by other parts of the app. To compile the files enter the following commands:
+
+(assuming you've cloned the project from git)
+python -m py_compile control.py manipulator.py 
+
+This should compile both of the files that comprise the intermediate without error.
+
 
 
 (4) SQL Database
