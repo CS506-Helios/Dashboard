@@ -1,0 +1,22 @@
+.topRow {
+    height: 40vh;
+    border-style: solid;
+    float: left;
+    width: 30%;
+    margin: 1%;
+}
+
+.bottomRow {
+    height: 40vh;
+    border-style: solid;
+    float: left;
+    margin: 1%;
+}
+
+#barChart {
+    width: 62%;
+}
+
+#weather {
+    width: 30%;
+}

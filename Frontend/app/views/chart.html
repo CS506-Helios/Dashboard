@@ -1,0 +1,205 @@
+<div class = "outside">
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="">Solar Dashboard</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row">
+    <div class="col-lg-4 col-sm-12" id="line-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Gauge</div>
+            <div class="panel-body">
+                <div class = "fixedT" id='myChart'>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12" id="bar-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Energy Facts</div>
+            <div class="panel-body">
+                 <div class = "fixedT">
+                  <center><img src="../img/idea.png" height="100px" >
+                  <h4> You could power 10 lightbulbs for a day with the energy produced by these solar panels </h4></center>
+            </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-lg-4 col-sm-12" id="doughnut-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Dollars Saved</div>
+            <div class="panel-body">
+            <div class = "fixedT">
+               <center><img src="../img/banknote.png" height="100px" >
+                  <h4> $10,000 of energy was produced in the last month </h4></center>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-8 col-sm-12" id="radar-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Energy Chart</div>
+            <div class="panel-body">
+            <div class = "fixed" id="myfirstchart">
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12" id="pie-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+          <div class="panel-heading">Weather</div>
+          <div class="panel-body">
+             <div class = "fixed">      
+              <a href="https://www.accuweather.com/en/us/madison-wi/53715/weather-forecast/331530" class="aw-widget-legal">
+</a><div id="awcc1509579563572" class="aw-widget-current"  data-locationkey="331530" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1509579563572"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+</div>
+<style >
+    
+
+</style>
+<script>
+   new Morris.Bar({
+  // ID of the element in which to draw the chart.
+  element: 'myfirstchart',
+  // Chart data records -- each entry in this array corresponds to a point on
+  // the chart.
+  data: [
+    { year: '2008', value: 20 },
+    { year: '2009', value: 10 },
+    { year: '2010', value: 5 },
+    { year: '2011', value: 5 },
+    { year: '2012', value: 20 }
+  ],
+  // The name of the data record attribute that contains x-values.
+  xkey: 'year',
+  // A list of names of data record attributes that contain y-values.
+  ykeys: ['value'],
+  // Labels for the ykeys -- will be displayed when you hover over the
+  // chart.
+  labels: ['Value']
+}); 
+
+window.feed = function(callback) {
+  var tick = {};
+  tick.plot0 = Math.ceil(350 + (Math.random() * 500));
+  callback(JSON.stringify(tick));
+};
+ 
+var myConfig = {
+    type: "gauge",
+    globals: {
+      fontSize: 20
+    },
+    plotarea:{
+      marginTop:50
+    },
+    plot:{
+      size:'100%',
+      valueBox: {
+        placement: 'center',
+        text:'%v', //default
+        fontSize:20,
+        rules:[
+          {
+            rule: '%v >= 700',
+            text: '%v<br>EXCELLENT'
+          },
+          {
+            rule: '%v < 700 && %v > 640',
+            text: '%v<br>Good'
+          },
+          {
+            rule: '%v < 640 && %v > 580',
+            text: '%v<br>Fair'
+          },
+          {
+            rule: '%v <  580',
+            text: '%v<br>Bad'
+          }   
+        ]
+      }
+    },
+  tooltip:{
+    borderRadius:5
+  },
+    scaleR:{
+      aperture:180,
+      minValue:300,
+      maxValue:850,
+      step:50,
+      center:{
+        visible:false
+      },
+      tick:{
+        visible:false
+      },
+      item:{
+        offsetR:0,
+        rules:[
+          {
+            rule:'%i == 9',
+            offsetX:15
+          }
+        ]
+      },
+      labels:['300','','','','','','580','640','700','750','','850'],
+      ring:{
+        size:30,
+        rules:[
+          {
+            rule:'%v <= 580',
+            backgroundColor:'#E53935'
+          },
+          {
+            rule:'%v > 580 && %v < 640',
+            backgroundColor:'#EF5350'
+          },
+          {
+            rule:'%v >= 640 && %v < 700',
+            backgroundColor:'#FFA726'
+          },
+          {
+            rule:'%v >= 700',
+            backgroundColor:'#29B6F6'
+          }      
+        ]
+      }
+    },
+  refresh:{  
+      type:"feed",
+      transport:"js",
+      url:"feed()",
+      interval:1500,
+      resetTimeout:1000
+  },
+    series : [
+        {
+            values : [755], // starting value
+            backgroundColor:'black',
+        indicator:[10,10,10,10,0.75],
+        animation:{  
+        effect:2,
+        method:1,
+        sequence:4,
+        speed: 900
+     },
+        }
+    ]
+};
+ 
+zingchart.render({ 
+    id : 'myChart', 
+    data : myConfig, 
+    height: 250, 
+    
+});
+ 
+</script>
