@@ -6,9 +6,6 @@
 
 (2)TA Jayasruthi Rangaraja(Jayasruthi) and TA Shivanee Nagarajan(Shivanee95) are invited to the repository. Professor would also be invited once her Github username is verified.
 
-
-
-
 2. Run and Complie Command
 
 (1) Front-end
