@@ -39,5 +39,6 @@
   },
   "_source": "https://github.com/ceoaliongroo/angular-weather.git",
   "_target": "^0.0.2",
-  "_originalSource": "angular-weather"
+  "_originalSource": "angular-weather",
+  "_direct": true
 }

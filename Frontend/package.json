@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "angular-weather-widget": "^1.2.4",
-    "angularjs-gauge": "^1.2.0"
+    "angularjs-gauge": "^2.1.1"
   },
   "devDependencies": {
     "grunt": "^0.4.1",

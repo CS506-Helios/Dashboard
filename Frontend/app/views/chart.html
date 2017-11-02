@@ -72,14 +72,21 @@
   // Chart data records -- each entry in this array corresponds to a point on
   // the chart.
   data: [
-    { year: '2008', value: 20 },
-    { year: '2009', value: 10 },
-    { year: '2010', value: 5 },
-    { year: '2011', value: 5 },
-    { year: '2012', value: 20 }
+    { month: 'January', value: 19 },
+    { month: 'February', value: 20 },
+    { month: 'March', value: 25 },
+    { month: 'April', value: 30 },
+    { month: 'May', value: 33 },
+    { month: 'June', value: 36 },
+    { month: 'July', value: 39 },
+    { month: 'August', value: 38 },
+    { month: 'September', value: 35 },
+    { month: 'October', value: 30 },
+    { month: 'November', value: 24 },
+    { month: 'December', value: 20 },
   ],
   // The name of the data record attribute that contains x-values.
-  xkey: 'year',
+  xkey: 'month',
   // A list of names of data record attributes that contain y-values.
   ykeys: ['value'],
   // Labels for the ykeys -- will be displayed when you hover over the
@@ -89,7 +96,7 @@
 
 window.feed = function(callback) {
   var tick = {};
-  tick.plot0 = Math.ceil(350 + (Math.random() * 500));
+  tick.plot0 = Math.ceil(10 + (Math.random() * 9));
   callback(JSON.stringify(tick));
 };
  
@@ -109,19 +116,19 @@ var myConfig = {
         fontSize:20,
         rules:[
           {
-            rule: '%v >= 700',
+            rule: '%v >= 17',
             text: '%v<br>EXCELLENT'
           },
           {
-            rule: '%v < 700 && %v > 640',
+            rule: '%v < 17 && %v >= 14',
             text: '%v<br>Good'
           },
           {
-            rule: '%v < 640 && %v > 580',
+            rule: '%v < 14 && %v >= 11',
             text: '%v<br>Fair'
           },
           {
-            rule: '%v <  580',
+            rule: '%v <  11',
             text: '%v<br>Bad'
           }   
         ]
@@ -132,9 +139,9 @@ var myConfig = {
   },
     scaleR:{
       aperture:180,
-      minValue:300,
-      maxValue:850,
-      step:50,
+      minValue:0,
+      maxValue:20,
+      step:1,
       center:{
         visible:false
       },
@@ -150,24 +157,24 @@ var myConfig = {
           }
         ]
       },
-      labels:['300','','','','','','580','640','700','750','','850'],
+      labels:[],
       ring:{
         size:30,
         rules:[
           {
-            rule:'%v <= 580',
+            rule:'%v <= 11',
             backgroundColor:'#E53935'
           },
           {
-            rule:'%v > 580 && %v < 640',
+            rule:'%v > 11 && %v < 14',
             backgroundColor:'#EF5350'
           },
           {
-            rule:'%v >= 640 && %v < 700',
+            rule:'%v >= 14 && %v < 17',
             backgroundColor:'#FFA726'
           },
           {
-            rule:'%v >= 700',
+            rule:'%v >= 17',
             backgroundColor:'#29B6F6'
           }      
         ]
@@ -182,7 +189,7 @@ var myConfig = {
   },
     series : [
         {
-            values : [755], // starting value
+            values : [0], // starting value
             backgroundColor:'black',
         indicator:[10,10,10,10,0.75],
         animation:{  
