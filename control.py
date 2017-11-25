@@ -6,6 +6,7 @@ class Controller:
         '''
         Given the set default timescale, query the database and forward that data to the websocket, for the user to view
         '''
+
         print('implement open_channel') # TODO: REMOVE
 
     # Push updated data to all websocket clients every ten minutes
@@ -23,6 +24,16 @@ class Controller:
         Given the new timescale (year, month, week, or day) create a query to the database to retrieve the data for the
         specified period
         '''
+        if timescale == 'day':
+            #SQL query to get data from the server, starting at midnight of the current day
+            return
+        if timescale == 'week':
+            #SQL query to get data for the last 7 days
+            return
+        if timescale == 'month':
+            #SQL query to request data for the month starting at the first of the month.
+        if timescale == 'year':
+            #SQL query to request data from the past 365 days
         print('implement get_data') # TODO: REMOVE
 
     # Responds to a client's request to change the timescale that they are viewing
@@ -33,12 +44,15 @@ class Controller:
         update websocket channels to reflect the new time frame, while allowing other websocket channels to
             remain unaltered
         '''
+        get_data(new_timescale)
         print('implement chenge_timescale') # TODO: REMOVE
 
     '''
     This method is used to facilitate administrator login.
     '''
     def login(username, password):
+
+
         '''
         Look up  username in SQL Database and check that the password for that username entry matches
         the password provided. This will likely be implemented by using the Webdriver library
