@@ -1,0 +1,7 @@
+#1. Data are properly scraped from the web source
+  #(1) Data are scraped every 10 minutes
+  #(2) Scraped data are stored in .csv form
+  #(3) csv file is parsed in desired way
+ 
+ #2. Scraped data are inserted into sql database
+ ...
