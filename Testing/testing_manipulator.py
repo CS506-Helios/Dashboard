@@ -60,11 +60,11 @@ class ManipulatorTestCase(unittest.TestCase):
     self.failUnlessRaises(ValueError, manipulator, price_per_kwh)
     self.failUnlessRaises(ValueError, manipulator, money_saved)
 
-  def manipulatorSetUp(self):
-    manipulator.objects.
+  #def manipulatorSetUp(self):
+    
   def test_update_total(self):
     self.assertEqual(self.get_current, 0)
-    self.assertEqual(.update_total
+    self.assertEqual(self.update_total, self.total_kwh)
   
   def test_update_money_saved(self):
     self.assertEqual(self.money_saved, self.update_money_saved) #money_saved should be equal to itself at this time since the function, get_current, returns 0
