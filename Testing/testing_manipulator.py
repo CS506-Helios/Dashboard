@@ -63,10 +63,11 @@ class ManipulatorTestCase(unittest.TestCase):
   def manipulatorSetUp(self):
     manipulator.objects.
   def test_update_total(self):
-    self.assertEqual(.get_current, 0)
+    self.assertEqual(self.get_current, 0)
     self.assertEqual(.update_total
   
-  def test_update_money_saved
+  def test_update_money_saved(self):
+    self.assertEqual(self.money_saved, self.update_money_saved) #money_saved should be equal to itself at this time since the function, get_current, returns 0
                      
 if __name__ == '__main__':
   unittest.main()
