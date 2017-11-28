@@ -34,22 +34,24 @@ a localhost:9000 should open on one of your browsers upon succesfull npm start.
 If this does not work, please contact mrkhan2@wisc.edu to provide a demo of the site
 
 
-(2) Data Scraping
+(2) Data Collection
 
-There are two websites for data scraping. These websites contain solar energy information from two different solar panels. 
-We need to add data together to get the total amount of solar energy produced. 
-We wrote Python programs for scraping the data, it requires these python modules to be installed: BeautifulSoup, selenium, chromedriver.
+There are two resources for data collection. One is the SunPower, which provides solar panels for our client. Another is the Fronius, which is the manufacterur of the inverters. 
+
+For SunPower, we wrote a Python programm (sunpower_retrieve.py) that use python-selenium to scrape data from its website. It requires these python modules to be installed: selenium, chromedriver, PhantonJS.
 
 Command Line: 
-
-$pip install beautifulsoup4
 
 $pip install -U selenium
 
 Download chromedriver from here: https://sites.google.com/a/chromium.org/chromedriver/downloads
 and add it to the working directory
 
-However, since the website has dynamic contents with javascript objects, it always redirect to another page of the company. This issue makes the program incompleted. After consulting with the TA, we decided to push the data scraping part to iteration 2 and rewrite the code using Java to solve the issue of session timeout.
+Download PhantomJS from here: http://phantomjs.org/download.html and follow the instructions to install it to the working drectory.
+
+Since the website contains flash embeded contents, we are not able to find the id/name/xpath using selenium functions. We will keep improving and testing the code.
+
+For Fronius, we also wrote a Python program (froniusapi.py) to request data from its API. It requires the remote access to the local network in the WEI building. 
 
 
 (3) control.py & manipulator.py 
