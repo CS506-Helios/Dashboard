@@ -12,7 +12,7 @@ import requests
 import time
 
 # IP address of inverter
-host = ""
+host = "144.92.98.92"
 # number of seconds between samples
 sample_seconds = 60 * 10
 
