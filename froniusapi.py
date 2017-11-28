@@ -44,9 +44,9 @@ def write_to_logfile(line):
 
 def watts_generated():
     url = "http://" + host + "/solar_api/v1/GetInverterRealtimeData.cgi?Scope=System"
-    r = requests.get(url, timeout=2)
+    r = requests.get(url, timeout=10)
     json_data = r.json()
-    result = json_data["Body"]["Data"]["PAC"]["Values"]["1"]
+    result = json_data["Body"]["Data"]["PAC"]["Values"]
     return result
 
 
