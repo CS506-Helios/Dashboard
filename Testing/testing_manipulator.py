@@ -53,9 +53,9 @@ import unittest
 
 class ManipulatorTestCase(unittest.TestCase):
   def test_constructor(self):
-    total_kwh = 1
-    price_per_kwh = 1
-    money_saved = 1
+    self.total_kwh = 1
+    self.price_per_kwh = 1
+    self.money_saved = 1
     self.failUnlessRaises(ValueError, manipulator, total_kwh)
     self.failUnlessRaises(ValueError, manipulator, price_per_kwh)
     self.failUnlessRaises(ValueError, manipulator, money_saved)
@@ -68,6 +68,11 @@ class ManipulatorTestCase(unittest.TestCase):
   
   def test_update_money_saved(self):
     self.assertEqual(self.money_saved, self.update_money_saved) #money_saved should be equal to itself at this time since the function, get_current, returns 0
+    
+  def test_gauge_percent_calculator(self, building_consumption, energy_produced):
+    building_consumption = 0
+    self.gauge_percent = energy_produced/building_consumption
+    self.failUnlessRaises(ValueError, manipulator, gauge_percent)
                      
 if __name__ == '__main__':
   unittest.main()
