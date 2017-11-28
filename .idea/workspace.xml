@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef6faeda-05b8-47b3-b3d9-658cb596af15" name="Default" comment="">
+    <list default="true" id="ef6faeda-05b8-47b3-b3d9-658cb596af15" name="Default" comment="SQLalchemy added and began work on querying">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/control.py" afterPath="$PROJECT_DIR$/control.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manipulator.py" afterPath="$PROJECT_DIR$/manipulator.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,34 +15,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="control.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="control.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/control.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="278">
+              <caret line="43" column="97" lean-forward="false" selection-start-line="43" selection-start-column="97" selection-end-line="43" selection-end-column="97" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="froniusapi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/froniusapi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manipulator.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="manipulator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/manipulator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-              <folding>
-                <element signature="e#30#44#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -61,6 +53,12 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <push-targets>
       <push-target-info target-remote="origin" target-branch="ben-pybranch" repo="$PROJECT_DIR$" source="master" />
     </push-targets>
@@ -69,8 +67,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../CS506/data_manipulation.py" />
-        <option value="$PROJECT_DIR$/control.py" />
         <option value="$PROJECT_DIR$/manipulator.py" />
+        <option value="$PROJECT_DIR$/control.py" />
       </list>
     </option>
   </component>
@@ -112,8 +110,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="Helios" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Helios" type="462c0819:PsiDirectoryNode" />
+              <item name="Dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -140,6 +138,14 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/.DS_Store</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/app/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/app/scripts/app.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/app/scripts/controllers/chartContoller.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/app/views/chart.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Testing/testing_manipulator.py</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/froniusapi.py</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
@@ -148,8 +154,100 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Testing/Initial_Test_List</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Testing/testing_manipulator.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/auto-adjust.htm</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/counter.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/custom-interval.htm</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/custom-node.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/custom-sectors.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/custom-value-renderer.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/customize-style.htm</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/defaults.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/font-options.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/format-number.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/html5-data-attribute-config.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/human-friendly-numbers.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/pointer.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/refresh-maximum.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/responsive-gauges.htm</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/examples/reverse.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/justgage.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/bower_components/justgage/raphael-2.1.4.min.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/.travis.yml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/coverage/coverage.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/coverage/lcov-report/async-throttle/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/coverage/lcov-report/async-throttle/index.js.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/coverage/lcov-report/base.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/coverage/lcov-report/index.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/coverage/lcov-report/prettify.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/coverage/lcov-report/prettify.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/coverage/lcov-report/sort-arrow-sprite.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/coverage/lcov-report/sorter.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/coverage/lcov.info</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/async-limiter/readme.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ultron/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ultron/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ultron/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/README.md</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/.DS_Store</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/BufferUtil.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/Constants.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/ErrorCodes.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/EventTarget.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/Extensions.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/PerMessageDeflate.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/Receiver.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/Sender.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/Validation.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/WebSocket.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/lib/WebSocketServer.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/node_modules/ws/package.json</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/db.sqlite3</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/__init__.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/__pycache__/__init__.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/__pycache__/admin.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/__pycache__/models.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/__pycache__/urls.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/__pycache__/views.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/admin.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/apps.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/migrations/__init__.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/migrations/__pycache__/__init__.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/models.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/tests.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/urls.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/energyAPI/views.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/functions/__pycache__/query_handler.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/functions/query_handler.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/__init__.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/__pycache__/__init__.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/__pycache__/admin.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/__pycache__/models.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/__pycache__/urls.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/__pycache__/views.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/admin.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/apps.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/migrations/__init__.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/migrations/__pycache__/__init__.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/models.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/tests.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/urls.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/initialize/views.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/manage.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/solar_dashboard/__init__.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/solar_dashboard/__pycache__/__init__.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/solar_dashboard/__pycache__/settings.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/solar_dashboard/__pycache__/urls.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/solar_dashboard/__pycache__/wsgi.cpython-36.pyc</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/solar_dashboard/settings.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/solar_dashboard/urls.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Helios-Solar-Dashboard/solar_dashboard/solar_dashboard/wsgi.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Testing/testing_scrape.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/sunpower_retrieve.py</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -157,6 +255,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/dashboarHTML.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Frontend/npm-debug.log</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/scrape.py</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -296,20 +397,28 @@
       <option name="project" value="LOCAL" />
       <updated>1511828721792</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="SQLalchemy added and began work on querying">
+      <created>1511828766078</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1511828766078</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24821173" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -344,7 +453,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -352,9 +463,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#30#44#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -362,7 +471,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -370,9 +481,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#30#44#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -380,7 +489,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -388,9 +499,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#30#44#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -398,7 +507,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -419,22 +530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/control.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="24" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/froniusapi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Testing/testing_manipulator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -443,12 +538,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/froniusapi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/manipulator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        <state relative-caret-position="15">
+          <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="43" column="97" lean-forward="false" selection-start-line="43" selection-start-column="97" selection-end-line="43" selection-end-column="97" />
           <folding>
-            <element signature="e#30#44#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
