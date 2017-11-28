@@ -1,6 +1,11 @@
 #This has been created by Ben
 import control
+from sqlalchemy import *
+
 class manipulator:
+    metadata = MetaData()
+
+    energy_data = table()
     def __init__(total, price, saved):
         # The total amount of energy produced
         self.total_kwh = 0 # replace with query to get the total info
@@ -47,4 +52,5 @@ class manipulator:
     panels
     '''
     def gauge_calculator(self, building_consumption, energy_produced):
+
         return energy_produced/building_consumption

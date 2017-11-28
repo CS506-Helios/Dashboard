@@ -1,23 +1,14 @@
 import manipulator
-import sched, time
+import sqlalchemy
+from sqlalchemy import *
+from sqlalchemy.orm import sessionmaker
 class Controller:
-    # Responds to a new websocket channel being opened
-    def open_channel(self):
-        # Send the data that is required by the new channel
-        '''
-        Given the set default timescale, query the database and forward that data to the websocket, for the user to view
-        '''
 
-        print('implement open_channel') # TODO: REMOVE
+    engine = create_engine('helios-wei-dashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
+    # The above string argument is the name of the server
 
-    # Push updated data to all websocket clients every ten minutes
-    def update_channels(self):
-        '''
-        Each time that new data is gathered push it along all open channels so thateach has access to the
-        new information
-        '''
-        self.get_data()
-        print('implement update_channels') # TODO: REMOVE
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
     # Query SQL database for data in the given timescale.
     def get_data (timescale):
@@ -25,10 +16,6 @@ class Controller:
         Given the new timescale (year, month, week, or day) create a query to the database to retrieve the data for the
         specified period
         '''
-        if timescale == 'day':
-            #SQL query to get data from the server, starting at midnight of the current day
-            print 'day query'
-            return
         if timescale == 'week':
             #SQL query to get data for the last 7 days
             print 'week query'
