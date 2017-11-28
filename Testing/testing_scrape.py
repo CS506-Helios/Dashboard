@@ -53,7 +53,7 @@ from django.test import Client
 newcl = Client()
 testerreq = c.get('/PvSystems/PvSystem?pvSystemId=712bb5f3-b4f6-4d2d-9c57-8b7e7c5d2f06')
 if tester.status_code == 200:
-  self.assertEqual(page, testerreq.content)
+  self.assertEqual(page.content, testerreq.content)
 else:
   self.fail("The server did not successfully answer to the http request")
   
