@@ -2,11 +2,9 @@ import manipulator
 import datetime
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
+import json
 class Controller:
-
-
-
-
+    json_data = {}
     # Query SQL database for data in the given timescale.
     def get_data (timescale):
         engine = create_engine('helios-wei-dashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
@@ -20,14 +18,17 @@ class Controller:
         '''
 
         if timescale == 'week':
-
             now = datetime.datetime.now()
             day = now.date()
             #SQL query to get data for the last 7 days
-            for entry in session.query(func.sum('TOTAL KWH')'TIMESTAMP'):
+            for entry in session.query(func.sum('TOTAL KWH')):
                 totals = [None] * 7
                 index = now.day() - 'TIMESTAMP DAY OF MONTH'
-                if index <= 7 & index > 0:
+
+                # check that entry is in the last 7 days (only works if entries are sorted old-->new)
+                if index > 7:
+                    break
+                if index <= 7 & index >= 0:
                     totals[index] += 0 #TODO: replace with the KWH for the entry
                 print(entry.field1 + ' ' + entry.field2)
 
@@ -61,8 +62,6 @@ class Controller:
             print 'year query'
             return
 
-        if timescale == None:
-            return
         #Call should be made to update_total
         manipulator.update_total()
         print('implement get_data') # TODO: REMOVE
@@ -77,9 +76,8 @@ class Controller:
             remain unaltered
         '''
         self.get_data(new_timescale)
-        self.update_channels()
 
-        print('implement chenge_timescale') # TODO: REMOVE
+
 
     '''
     This method is used to facilitate administrator login.
@@ -109,10 +107,15 @@ class Controller:
         print('implement update_admin_settings') # TODO: REMOVE
 
     # Allows the price of energy to be updated by the admin
-    def update_price(self, new_price):
+    def update_price(self, new_price, json_object):
         manipulator.price_per_kwh = new_price
         ''' 
         May want to allow total cost to remain unchanged, only allowing the updated price to affect the energy 
         collected after the price is updated.
         '''
+    def update_page(self):
+        #TODO: implement update page and figure out how to do JSON stuff
+        return
+
+
 
