@@ -36,7 +36,7 @@ If this does not work, please contact mrkhan2@wisc.edu to provide a demo of the 
 
 (2) Data Collection
 
-There are two resources for data collection. One is the SunPower, which provides solar panels for our client. Another is the Fronius, which is the manufacterur of the inverters. 
+There are two resources for data collection. One is the SunPower website, which provides solar panels for our client. Another is the Fronius API, which is the manufacterur of the inverters. 
 
 For SunPower, we wrote a Python programm (sunpower_retrieve.py) that use python-selenium to scrape data from its website. It requires these python modules to be installed: selenium, chromedriver, PhantonJS.
 
@@ -49,9 +49,9 @@ and add it to the working directory
 
 Download PhantomJS from here: http://phantomjs.org/download.html and follow the instructions to install it to the working drectory.
 
-Since the website contains flash embeded contents, we are not able to find the id/name/xpath using selenium functions. We will keep improving and testing the code.
+Since the website contains flash embeded contents, we are not able to find the id/name/xpath using selenium functions. We will keep improving and testing this code.
 
-For Fronius, we also wrote a Python program (froniusapi.py) to request data from its API. It requires the remote access to the local network in the WEI building. 
+For Fronius, we also wrote a Python program (froniusapi.py) to request data from the Fronius API. It requires the remote access to the local network in the WEI building. 
 
 
 (3) control.py & manipulator.py 
