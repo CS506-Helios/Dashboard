@@ -71,3 +71,10 @@ Command line: $ mysql -h "server-name" -u "your_username" "-pyour_password" "dat
 
 This command line can be used in database from terminal to execute SQL script and verify if CREATE TABLE command produces tables as desired.
 
+
+
+(5) Testing
+
+You could run tests using the test command in your command line,
+$./testing-file-name.py test
+
