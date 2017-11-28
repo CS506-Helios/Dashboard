@@ -36,7 +36,7 @@ If this does not work, please contact mrkhan2@wisc.edu to provide a demo of the 
 
 (2) Data Collection
 
-There are two resources for data collection. One is the SunPower website, which provides solar panels for our client. Another is the Fronius API, which is the manufacterur of the inverters. 
+There are two resources for data collection. One is the SunPower website, which provides solar panels for our client. Another one is the Fronius API, which is the manufacterur of the inverters. 
 
 For SunPower, we wrote a Python programm (sunpower_retrieve.py) that use python-selenium to scrape data from its website. It requires these python modules to be installed: selenium, chromedriver, PhantonJS.
 
