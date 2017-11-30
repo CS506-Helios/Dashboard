@@ -1,12 +1,16 @@
 import manipulator
-import datetime
+from datetime import *
+import mapping
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
+import time
 import json
 class Controller:
-    json_data = {}
+
+
     # Query SQL database for data in the given timescale.
     def get_data (timescale):
+
         engine = create_engine('helios-wei-dashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
         # The above string argument is the name of the server
 
@@ -21,15 +25,17 @@ class Controller:
             now = datetime.datetime.now()
             day = now.date()
             #SQL query to get data for the last 7 days
-            for entry in session.query(func.sum('TOTAL KWH')):
+            #for entry in session.query(func.sum(mapping.EnergyData)).filter():
+            for entry in session.query(mapping.EnergyData).order_by(mapping.EnergyData.id):
+                dt = datetime.fromtimestamp(time.mktime(entry.id))
                 totals = [None] * 7
-                index = now.day() - 'TIMESTAMP DAY OF MONTH'
-
+                entry_date = dt.date()
+                index = now.day() - entry_date
                 # check that entry is in the last 7 days (only works if entries are sorted old-->new)
                 if index > 7:
                     break
                 if index <= 7 & index >= 0:
-                    totals[index] += 0 #TODO: replace with the KWH for the entry
+                    totals[index] += entry.intervalEnergy
                 print(entry.field1 + ' ' + entry.field2)
 
 
@@ -37,13 +43,18 @@ class Controller:
             return
 
         if timescale == 'month':
-
-            now = datetime.datetime.now()
+            now = datetime.now()
             current_month = now.month
-            for entry in session.query(func.sum('KWH')).filter(month = current_month):
+
+            for entry in session.query(mapping.EnergyData).order_by(mapping.EnergyData.id):
                 totals = [None] * now.date()
-                totals[entry.intervalEnergy + 1] += 0 #TODO: replace with the KWH for the entry
-                #Transmit data in JSON format to AJAX frontend
+                totals[entry.intervalEnergy + 1] += entry.intervalEnergy
+                dt = datetime.fromtimestamp(time.mktime(entry.id)) # datetime that the entry was created at
+                if dt.month == now.month :
+                    totals[dt.date() - 1] += entry.intervalEnergy
+                else:
+                    # Transmit data in JSON format to AJAX frontend
+                    return
 
             print 'month query'
             # SQL query to request data for the month starting at the first of the month.
@@ -54,10 +65,10 @@ class Controller:
             year = now.year
 
             # SQL query to request data from the past 365 days
-            for entry in session.query('TIMESTAMP').filter('TIMESTAMP YEAR' == year):
+            for entry in session.query(mapping.EnergyData).filter('TIMESTAMP YEAR' == year):
                 #Transmit data in JSON format to AJAX front end
                 totals = [None] * 12
-                totals['ENTRY TIMESTAMP MONTH'+1] += 0 #TODO: replace with the KWH for the entry
+                totals['ENTRY TIMESTAMP MONTH'+1] += entry.intervalEnergy #TODO: replace with the KWH for the entry
 
             print 'year query'
             return
@@ -76,6 +87,7 @@ class Controller:
             remain unaltered
         '''
         self.get_data(new_timescale)
+        # TODO: send the new timescale to the database
 
 
 
@@ -108,11 +120,13 @@ class Controller:
 
     # Allows the price of energy to be updated by the admin
     def update_price(self, new_price, json_object):
-        manipulator.price_per_kwh = new_price
+        mapping.DasboardSettings.pricePerKWh = new_price
         ''' 
         May want to allow total cost to remain unchanged, only allowing the updated price to affect the energy 
         collected after the price is updated.
         '''
+
+
     def update_page(self):
         #TODO: implement update page and figure out how to do JSON stuff
         return
