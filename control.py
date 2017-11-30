@@ -42,7 +42,7 @@ class Controller:
             current_month = now.month
             for entry in session.query(func.sum('KWH')).filter(month = current_month):
                 totals = [None] * now.date()
-                totals['ENTRY DATE TIMESTAMP' + 1] += 0 #TODO: replace with the KWH for the entry
+                totals[entry.intervalEnergy + 1] += 0 #TODO: replace with the KWH for the entry
                 #Transmit data in JSON format to AJAX frontend
 
             print 'month query'
