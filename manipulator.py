@@ -1,15 +1,19 @@
 #This has been created by Ben
 import control
+import mapping
 from sqlalchemy import *
+from sqlalchemy.sql import func
 
 class manipulator:
-    metadata = MetaData()
+    engine = create_engine('helios-wei-dashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
+    # The above string argument is the name of the server
 
-    energy_data = table() # new table
+    Session = sessionmaker(bind=engine)
+    session = Session()
     def __init__(total, price, saved):
         # The total amount of energy produced
-        self.total_kwh = 0 # replace with query to get the total info
-        self.price_per_kwh = 0 # query the database to get the stored value
+        self.total_kwh = session.query(func.sum(mapping.EnergyData.intervalEnergy)) #sums all interval totals
+        self.price_per_kwh = mapping.DasboardSettings.pricePerKWh  # queries the database to get the stored value
         self.money_saved = total_kwh * price_per_kwh # The amount of money saved on energy by the panel
 
     # Method to get updates from the database automatically every ten minutes
