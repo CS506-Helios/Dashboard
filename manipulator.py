@@ -5,13 +5,10 @@ from sqlalchemy import *
 from sqlalchemy.sql import func
 
 class manipulator:
-    engine = create_engine('helios-wei-dashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
-    # The above string argument is the name of the server
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    def __init__(total, price, saved):
+    def __init__(self):
         # The total amount of energy produced
+        self.session = session
         self.total_kwh = session.query(func.sum(mapping.EnergyData.intervalEnergy)) #sums all interval totals
         self.price_per_kwh = mapping.DasboardSettings.pricePerKWh  # queries the database to get the stored value
         self.money_saved = total_kwh * price_per_kwh # The amount of money saved on energy by the panel
@@ -24,12 +21,11 @@ class manipulator:
         This way the control can perform all the websocket interaction, and needs only to call this method. contributor
         '''
         recent = self.get_current() #variable to hold the amount of energy
-        print('Current: '.format(total_kwh))  # TODO: REMOVE
         total_kwh += recent
         update_money_saved() # Update the total money saved based on the update
 
-        # push the new value for total energy produced to the front end
-        print('Updated: '.format(self.total_kwh))  # TODO: REMOVE
+        #TODO: push the new value for total energy produced to the front end
+
     # Method to take the total and the price of energy and calculate the total amount of money saved so far
     def update_money_saved(self):
         '''
@@ -41,7 +37,8 @@ class manipulator:
 
     # Method used to get an estimate of the current energy being produced for the gauge panel
     def get_current(self):
-        current = 0 # TODO: replace with query to DB to get the data since the last update
+        session = control.create_session()
+        current = session.query(mapping.EnergyData.intervalEnergy)
         return current
 
     '''

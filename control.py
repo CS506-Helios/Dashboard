@@ -7,6 +7,13 @@ import time
 import json
 class Controller:
 
+    def create_session(self):
+        engine = create_engine('weiheliosdashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
+        # The above string argument is the name of the server
+
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        return session
 
     # Query SQL database for data in the given timescale.
     def get_data (timescale):
