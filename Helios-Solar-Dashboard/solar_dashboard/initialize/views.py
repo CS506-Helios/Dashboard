@@ -8,5 +8,5 @@ from rest_framework import status
 from functions import query_handler
 
 def data(request):
-    return query_handler.initialize()
-    
+    result = query_handler.initialize()
+    return JsonResponse(result)
