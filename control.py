@@ -1,14 +1,17 @@
 import manipulator
 from datetime import *
-import mapping
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
 import time
 import json
+import mapping
+
 class Controller:
 
+    def __init__(self):
+        return
+
     def create_session(self):
-        engine = create_engine('weiheliosdashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
         # The above string argument is the name of the server
 
         Session = sessionmaker(bind=engine)
@@ -16,13 +19,7 @@ class Controller:
         return session
 
     # Query SQL database for data in the given timescale.
-    def get_data (timescale):
-
-        engine = create_engine('helios-wei-dashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
-        # The above string argument is the name of the server
-
-        Session = sessionmaker(bind=engine)
-        session = Session()
+    def get_data (timescale, session):
         '''
         Given the new timescale (year, month, week, or day) create a query to the database to retrieve the data for the
         specified period
@@ -86,7 +83,7 @@ class Controller:
         return
 
     # Responds to a client's request to change the timescale that they are viewing
-    def change_timescale(self, new_timescale):
+    def change_timescale(self, new_timescale, session):
         '''
         given the new timescale, call get_data(timescale) to create a query for the database structured to retrieve
             that time frame
@@ -101,7 +98,7 @@ class Controller:
     '''
     This method is used to facilitate administrator login.
     '''
-    def login(self, username, password):
+    def login(self, username, password, session):
         '''
         Look up  username in SQL Database and check that the password for that username entry matches
         the password provided. This will likely be implemented by using the Webdriver library
@@ -117,7 +114,7 @@ class Controller:
         print('implement login') # TODO: REMOVE
 
     # Parses updates from the dashboard editor and updates the values in the database
-    def update_admin_settings(self):
+    def update_admin_settings(self, session):
         '''
         parse info given by the front end
         find user in database
@@ -126,7 +123,7 @@ class Controller:
         print('implement update_admin_settings') # TODO: REMOVE
 
     # Allows the price of energy to be updated by the admin
-    def update_price(self, new_price, json_object):
+    def update_price(self, new_price, json_object, session):
         mapping.DasboardSettings.pricePerKWh = new_price
         ''' 
         May want to allow total cost to remain unchanged, only allowing the updated price to affect the energy 
@@ -138,5 +135,7 @@ class Controller:
         #TODO: implement update page and figure out how to do JSON stuff
         return
 
-
+control = Controller()
+session = control.create_session()
+control.get_data('week', session)
 
