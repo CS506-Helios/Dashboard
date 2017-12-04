@@ -1,14 +1,11 @@
 #!/usr/bin/python
 
 import MySQLdb
-import mysql.connector
-from mysql.connector import Error
-import csv_parse
 
 #csv_parse.py
 import csv
 from datetime import datetime
-with open('SunPower_Nov_01_2017_Nov_01_2017.csv') as csvfile:
+with open('2017_12_04.csv') as csvfile:
   reader = csv.reader(csvfile)
   total = 0
   for row in reader:
@@ -21,8 +18,8 @@ with open('SunPower_Nov_01_2017_Nov_01_2017.csv') as csvfile:
           print
 
 #Connecting to SQLdb
-conn = mysql.connector.connect(host = 'weiheliosdashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com', 
-                               database = 'dashboard', user = 'helios', password = 'cleanenergy123')
+conn = MySQLdb.connect(host = 'weiheliosdashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com', 
+                               user = 'helios', passwd = 'cleanenergy123')
 cursor = conn.cursor()
    
 if conn.is_connected():
@@ -37,6 +34,9 @@ def dataInsert():
    try:
       cursor.execute("""INSERT INTO Energy (datetime, EnrgyInterval) VALUES ()""", (row[0], row[1]))
       conn.commit()
+      cursor.execute("""SELECT * FROM Energy;""")
+      print cursor.fetchall()
+      
    except:
       conn.rollback()
       
