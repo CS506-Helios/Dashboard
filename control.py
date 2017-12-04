@@ -1,10 +1,12 @@
-import manipulator
+import time
 from datetime import *
+
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
-import time
-import json
+
+import manipulator
 import mapping
+
 
 class Controller:
 
@@ -13,24 +15,27 @@ class Controller:
 
     def create_session(self):
         # The above string argument is the name of the server
-
+        engine = create_engine('mssql+pyodbc://helios:cleanenergy123@weiheliosdashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
+        #engine = create_engine('weiheliosdashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
         Session = sessionmaker(bind=engine)
         session = Session()
         return session
 
     # Query SQL database for data in the given timescale.
-    def get_data (timescale, session):
+    def get_data (self, timescale, session):
         '''
         Given the new timescale (year, month, week, or day) create a query to the database to retrieve the data for the
         specified period
         '''
-
+        print 'get_data'
         if timescale == 'week':
-            now = datetime.datetime.now()
+            now = datetime.now()
             day = now.date()
             #SQL query to get data for the last 7 days
             #for entry in session.query(func.sum(mapping.EnergyData)).filter():
-            for entry in session.query(mapping.EnergyData).order_by(mapping.EnergyData.id):
+            session.query(mapping.EnergyData).count()
+            '''for entry in session.query(mapping.EnergyData):
+                print entry.intervalEnergy
                 dt = datetime.fromtimestamp(time.mktime(entry.id))
                 totals = [None] * 7
                 entry_date = dt.date()
@@ -41,6 +46,7 @@ class Controller:
                 if index <= 7 & index >= 0:
                     totals[index] += entry.intervalEnergy
                 print(entry.field1 + ' ' + entry.field2)
+                '''
 
 
             print 'week query'
