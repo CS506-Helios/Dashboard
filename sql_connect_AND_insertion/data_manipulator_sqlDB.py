@@ -21,7 +21,7 @@ with open('SunPower_Nov_01_2017_Nov_01_2017.csv') as csvfile:
           print
 
 #Connecting to SQLdb
-conn = mysql.connector.connect(host = 'localhost', database = 'dashboard', user = 'TBD', password = 'TBD')
+conn = mysql.connector.connect(host = 'weiheliosdashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com', database = 'dashboard', user = 'helios', password = 'cleanenergy123')
 cursor = conn.cursor()
    
 if conn.is_connected():
