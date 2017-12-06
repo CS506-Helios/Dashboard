@@ -14,7 +14,7 @@ import time
 # IP address of inverter
 host = "144.92.98.92"
 # number of seconds between samples
-sample_seconds = 60 * 10
+sample_seconds = 60 * 5
 
 
 def main():
