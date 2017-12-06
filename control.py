@@ -3,20 +3,18 @@ from datetime import *
 
 from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
-
 import manipulator
+import sqlalchemy.dialects.mssql
 import mapping
 
 
 class Controller:
-
     def __init__(self):
         return
 
     def create_session(self):
         # The above string argument is the name of the server
-        engine = create_engine('mssql+pyodbc://helios:cleanenergy123@weiheliosdashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
-        #engine = create_engine('weiheliosdashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com')
+        engine = create_engine('mssql+pyodbc://helios:cleanenergy123@weiheliosdashboard.cq6hbz3m95ou.us-east-1.rds.amazonaws.com/')
         Session = sessionmaker(bind=engine)
         session = Session()
         return session
@@ -32,9 +30,7 @@ class Controller:
             now = datetime.now()
             day = now.date()
             #SQL query to get data for the last 7 days
-            #for entry in session.query(func.sum(mapping.EnergyData)).filter():
-            session.query(mapping.EnergyData).count()
-            '''for entry in session.query(mapping.EnergyData):
+            for entry in session.query(func.sum(mapping.EnergyData.intervalEnergy)):
                 print entry.intervalEnergy
                 dt = datetime.fromtimestamp(time.mktime(entry.id))
                 totals = [None] * 7
@@ -46,9 +42,6 @@ class Controller:
                 if index <= 7 & index >= 0:
                     totals[index] += entry.intervalEnergy
                 print(entry.field1 + ' ' + entry.field2)
-                '''
-
-
             print 'week query'
             return
 
