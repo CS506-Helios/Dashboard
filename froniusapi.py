@@ -34,7 +34,7 @@ def main():
         else:
             return
 
-
+# write the line to a csv file
 def write_to_logfile(line):
     today = time.strftime("%Y_%m_%d")
     file_name = today + ".csv"
@@ -43,14 +43,16 @@ def write_to_logfile(line):
     out_file.close()
 
 
-
+# power generated in certain time piriod
 def watts_generated():
     url = "http://" + host + "/solar_api/v1/GetInverterRealtimeData.cgi?Scope=System"
     r = requests.get(url, timeout=10)
     json_data = r.json()
     dic = json_data["Body"]["Data"]["PAC"]["Values"]
-    getcontext().prec =10
-    result = Decimal(sum(dic.values())) / Decimal(12000)
+    #getcontext().prec =10
+    #result = Decimal(sum(dic.values())) / Decimal(12000)
+    # sum up values in two units of inverters and transfer the unit to kWh
+    result = sum(dic.values()) / float(12000)
     return result
 
 if __name__ == "__main__":
