@@ -63,7 +63,9 @@ python -m py_compile control.py manipulator.py
 
 This should compile both of the files that comprise the intermediate without error.
 
-
+data_manipulator_sqlDB.py
+To install this package with conda run:
+conda install -c anaconda mysql-python 
 
 (4) SQL Database
 
