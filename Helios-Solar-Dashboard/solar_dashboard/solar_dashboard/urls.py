@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin', admin.site.urls),
     url(r'^energyapi', include('energyAPI.urls')),
-    url(r'^initialize', include('initialize.urls'))
+    url(r'^initialize', include('initialize.urls')),
+    url(r'^login', include('login.urls'))
 ]
