@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+form {
+    border: 3px solid #f1f1f1;
+}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.smallButton {
+	width : 20%;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 20%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+</head>
+<body>
+
+<h2 style="font-family:verdana;">Dashboard Editor</h2>
+
+<form action="https://www.hashemian.com/tools/form-post-tester.php/42453" method="post">
+  <div class="imgcontainer">
+    <img src="HeliosLogo.jpg" alt="Avatar" class="avatar">
+  </div>
+  <div align=" center"class="container">
+    <label style="font-family:verdana;"><b>Price Function:</b></label>
+	<br>
+    <input type="text" placeholder="Enter price per kWh" name="kWh" required>
+	<br>
+    <label style="font-family:verdana;"><b>Energy Analogy:</b></label>
+	<br>
+    <input type="text" placeholder="Enter energy in kWh needed to complete the action" name="needed" required>   
+	<br>	
+	<input type="text" placeholder="Enter the text statement before the calculation (energy / energy per action)" name="before" required>   
+	<br>	
+	<input type="text" placeholder="Enter the text statement after the calculation (energy / energy per action)" name="after" required>   
+	<br>	
+	<input type="text" placeholder="Enter the URL of the desired image" name="url" required>   
+	<br>	
+	<select name="cycle">
+  <option value="weekly">weekly</option>
+  <option value="monthly">monthly</option>
+  <option value="yearly">yearly</option>
+  <option value="loop">loop</option>
+        </select>
+        <div>
+	</div>
+	
+    <button class = "smallButton" type="submit">Save</button>
+	<br>
+  </div>
+  
+  
+
+
+</form>
+
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>

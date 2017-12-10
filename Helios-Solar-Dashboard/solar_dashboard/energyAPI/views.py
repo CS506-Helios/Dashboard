@@ -27,12 +27,12 @@ def data(request):
 
     #Get energy data for num_days
     energy_data = QueryHandler.energy_data(num_days, timescale)
-    
+
     #Prepare response dict
     result = {}
 
     #Get array containing the individual energy total for the days or months
-    individual_energy_totals = DataCalculator.individual_energy_totals(energy_data)
+    individual_energy_totals = DataCalculator.individual_energy_totals(energy_data, timescale)
     result['values'] = individual_energy_totals
 
     #Get total energy for the timescale

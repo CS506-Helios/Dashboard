@@ -1,7 +1,7 @@
-daily_energy_consumption = 5
+daily_energy_consumption = 200
 
 #TO DO: Build and return an array which stores the energy value at each row at a separate index in the array
-def individual_energy_totals(energy_data):
+def individual_energy_totals(energy_data, timescale):
     totals = []
     row = energy_data.fetchone()
     index = 0
@@ -9,6 +9,17 @@ def individual_energy_totals(energy_data):
         totals.append(row[0])
         row = energy_data.fetchone()
         index = index + 1
+
+    extra_indexes = 0
+    if timescale == 'week':
+        extra_indexes = 7 - len(totals)
+    if timescale == 'month':
+        extra_indexes = 31 - len(totals)
+    if timescale == 'year':
+        extra_indexes = 12 - len(totals)
+
+    for i in range (1, extra_indexes + 1):
+        totals.append(0)
     return totals
 
 #TO DO: Return the sum of the values at each index of the passed array
@@ -31,4 +42,4 @@ def money_saved(total_energy, price_per_kwh):
 #TO DO: Given the total energy produced and the timescale, use the global variable to calculate
 #what percentage of the building's total energy consumption is accounted for by the panels
 def energy_percentage(total_energy, days):
-    return total_energy / (daily_energy_consumption * days)
+    return total_energy / (daily_energy_consumption * days) * 100

@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'energyAPI',
     'initialize',
-    'login'
+    'login',
+    'solar_dashboard',
+    'editor'
 ]
 
 MIDDLEWARE = [

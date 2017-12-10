@@ -68,9 +68,9 @@ span.psw {
 
 <h2 style="font-family:verdana;">Dashboard Editor Login</h2>
 
-<form action="http://127.0.0.1:8000/login">
+<form action="http://127.0.0.1:8000/login" method="POST">
   <div class="imgcontainer">
-    <img src="HeliosLogo.jpg" alt="Avatar" class="avatar">
+    <img src="static/login/HeliosLogo.png" style="height: 15vh;">
   </div>
 
   <div align=" center"class="container">
@@ -89,13 +89,9 @@ span.psw {
     <button type="submit">Login</button>
 	
 	<br>
-    <input type="checkbox" checked="checked"> Remember me
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
+
 </form>
 
 </body>

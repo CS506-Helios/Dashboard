@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from functions import QueryHandler
 
+#Determines action to take depending on request method
 def login(request):
     if request.method == 'GET':
         return login_form(request)
@@ -12,7 +13,12 @@ def login(request):
 
 #Handles request for the login form
 def login_form(request):
-    return render(request, 'login.html')
+    if 'name' in request.session:
+        #Redirect to dashboard editor if the admin is already logged in
+        return HttpResponse("<h1>The key exists</h1>")
+    else:
+        #Return login form if admin is not logged in
+        return render(request, 'login.html')
 
 #Handles admin authentication and login
 def authenticate(request):
@@ -21,6 +27,15 @@ def authenticate(request):
 
     username_password = QueryHandler.authenticate(username)
     if username_password != None and username_password[1] == password:
-        return HttpResponse("<h1>You in</h1>")
+        #Login Succeeded
+
+        #Create session
+        request.session['name'] = username
+
+        #Redirect to dashboard editor
+        return HttpResponseRedirect('/editor')
     else:
+        #Logn Failed
+
+        #Reload login form
         return HttpResponseRedirect('/login')
