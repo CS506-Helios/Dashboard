@@ -1,60 +1,36 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
-"""
-@author: ying
-"""
+#!/usr/bin/env python
+
+@Testing
 
 import requests
-
-# The selenium module
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-
-# The Beautiful Soup module
-from bs4 import BeautifulSoup
-
+from decimal import *
 import time
 
-# Start the WebDriver and load the page
-timeout = 60
-url = 'https://www.solarweb.com/PvSystems/PvSystem?pvSystemId=712bb5f3-b4f6-4d2d-9c57-8b7e7c5d2f06'
+# IP address of inverter
+host = "144.92.98.92"
+# number of seconds between samples
 
-page = requests.get(url,timeout=60)
-print page.content
-driver = webdriver.Chrome()
-driver.get(url, timeout=60)
+minute = 1
 
-# Scrape data in every 10 minutes
-while True:
-    WebDriverWait(driver).until(EC.visibility_of_element_located((By.ID, "the-element-id")))
-    page = driver.page_source
-    soup = BeautifulSoup(page, 'lxml')
-    divs = soup.find_all('div', class_='live-plot-header')
-    for div in divs:
-# Add error handling
-        try:            
-            name = div.title.text
-            kwh = div.find('div', class_='pull-left').text
-            print(name + kwh)
-        except AttributeError:
-            continue
-        else:
-            break
+sample_seconds = 60 * minute
     
-    time.sleep(600)
+if sample_seconds != 300:
+    print ('Too short') 
+
+def main():
+    energy_generated()
 
 
+# power generated in certain time piriod
+def energy_generated():
+    url = "http://" + host + "/solar_api/v1/GetInverterRealtimeData.cgi?Scope=System"
+    r = requests.get(url, timeout=10)
+    json_data = r.json()
+    dic = json_data["Body"]["Data"]["PAC"]["Values"]
+    # sum up values in two units of inverters and transfer the unit to kWh
+    result = sum(dic.values()) / float(60000/minute)
+    return result
 
-#Importing Unit Test Case
-import unittest
-from django.test import Client
-newcl = Client()
-testerreq = c.get('/PvSystems/PvSystem?pvSystemId=712bb5f3-b4f6-4d2d-9c57-8b7e7c5d2f06')
-if tester.status_code == 200:
-  self.assertEqual(page.content, testerreq.content)
-else:
-  self.fail("The server did not successfully answer to the http request")
-  
-driver.quit()
+
+if __name__ == "__main__":
+    main()
