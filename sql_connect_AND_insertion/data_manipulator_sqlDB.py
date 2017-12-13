@@ -40,9 +40,6 @@ def EnergyData_insertion():
             cnxn.commit()
             cursor.execute('''select * from EnergyData;''')
             results = cursor.fetchall()
-
-            for row in results:
-                print (row[0])
     
         except requests.exceptions.ConnectTimeout:
             print("Connect timeout at %s" % time.strftime("%H:%M:%S"))
