@@ -15,7 +15,7 @@ def login(request):
 def login_form(request):
     if 'name' in request.session:
         #Redirect to dashboard editor if the admin is already logged in
-        return HttpResponse("<h1>The key exists</h1>")
+        return HttpResponseRedirect('/editor')
     else:
         #Return login form if admin is not logged in
         return render(request, 'login.html')
