@@ -1,0 +1,807 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!--
+    <link rel="stylesheet" href="styles/sb-admin-2.css">
+    <link rel="stylesheet" href="styles/timeline.css">
+  -->
+
+    <!-- endbuild -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!--
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+  -->
+    <!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+  -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+
+
+    <!-- gauge -->
+
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+
+
+
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="app.js"></script>
+    <!--
+        <script src="js/sb-admin-2.js"></script>
+      -->
+    <!-- endbuild -->
+
+
+
+    <!-- Custom CSS -->
+    <style>
+        h3 {
+            font-size: 2.5vh;
+            font-family: 'Open Sans', sans-serif;
+            margin-top: 5px;
+        }
+        
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        h1 {
+            color: white;
+        }
+        
+        .dropbutton {
+            box-shadow: 5px 5px 10px #888888;
+            border-radius: 3px;
+            margin-bottom: 16px;
+            margin-top: 16px;
+            background-color: #11B29C;
+            color: white;
+            padding-left: 32px;
+            padding-right: 32px;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block
+        }
+        
+        .dropdown-content {
+            box-shadow: 5px 5px 10px #888888;
+            border-radius: 3px;
+            display: none;
+            margin-top: -14px;
+            right: 0;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #16f9da
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown:hover .dropbuttonn {
+            background-color: #3e8e41;
+        }
+        
+        .container {
+            flex-flow: row wrap;
+            display: flex;
+            width: 100%;
+        }
+        
+        .left-div,
+        .right-div {
+            display: flex;
+            width: 20%;
+        }
+        
+        .right-div {
+            justify-content: flex-end;
+        }
+        
+        .center-div {
+            display: flex;
+            width: 60%;
+            justify-content: center;
+        }
+        
+        @media all and (max-width: 768px) {
+            .container {
+                flex-flow: column wrap;
+                width: 100%;
+                text-align: center;
+                padding: 0;
+            }
+            .left-div,
+            .right-div {
+                display: flex;
+                width: 100%;
+            }
+            .right-div {
+                justify-content: center;
+            }
+            .center-div {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        .container2 {
+            flex-flow: column wrap;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        
+        .top-div {
+            height: 78%;
+            width: 100%;
+            font-size: 0;
+            padding: 0;
+        }
+        
+        .bot-div {
+            padding: 0;
+            height: 22%;
+            width: 100%;
+        }
+
+        .container3{
+            flex-flow: column wrap;
+            width:100%;
+            height: 100%
+        }
+    </style>
+
+    <!-- Custom Fonts -->
+
+    <!-- Morris Charts CSS -->
+    <!-- <link href="styles/morrisjs/morris.css" rel="stylesheet"> -->
+
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
+
+</head>
+
+<body>
+    <div class="outside">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="container">
+                    <div class="left-div"></div>
+
+                    <div class="center-div">
+                        <h1 id="title" class="top">
+
+                            <font color="#ffffff" style=font-size:5vh;>Solar Energy Dashboard</font>
+
+                        </h1>
+                    </div>
+
+                    <div class="right-div">
+                        <div class="dropdown" style="float:right;">
+                            <button class="dropbutton">Timescale <span class="caret"></span></button>
+                            <div class="dropdown-content">
+                                <a onclick="changer(urlBase + 'week')">Week</a>
+                                <a onclick="changer(urlBase + 'month')">Month</a>
+                                <a onclick="changer(urlBase + 'year')">Year</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-12" id="line-chart" ng-controller="ChartCtrl">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <center>
+                            <font color="#ffffff">Building Solar Energy %</font>
+                        </center>
+                    </div>
+                    <div class="panel-body">
+                        <div id="gauge" style="min-width: 310px; max-width: 4000px; height: 27vh; margin: 0 auto"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12" id="bar-chart" ng-controller="ChartCtrl">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="demo">
+                        <center>
+                            <font color="#ffffff">Energy Analogy</font>
+                        </center>
+                    </div>
+                    <div class="panel-body">
+                        <div class="fixedT">
+                            <div class="container2">
+                                <div class="top-div">
+                                    <img id="analogyImage" src="img/idea.png">
+                                </div>
+                                <div class="bot-div">
+                                    <h3 id="enAnalogy"> You could power 10 lightbulbs for a day with the energy produced by these solar panels
+                                    </h3>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12" id="doughnut-chart" ng-controller="ChartCtrl">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <center>
+                            <font color="#ffffff">Dollars Saved</font>
+                        </center>
+                    </div>
+                    <div class="panel-body">
+                        <div class="fixedT">
+                            <div class="container2">
+                                <div class="top-div">
+                                    <img src="img/banknote.png">
+                                </div>
+                                <div class="bot-div">
+                                    <h3 id="cost"> $10,000 of energy was produced last month </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-sm-12" id="radar-chart" ng-controller="ChartCtrl">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <center>
+                            <font color="#ffffff">Energy Chart</font>
+                        </center>
+                    </div>
+                    <div class="panel-body" style="height: 100%;">
+                        <div id="chart_div" style="height: 33vh;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12" id="pie-chart" ng-controller="ChartCtrl">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <center>
+                            <font color="#ffffff">Weather</font>
+                        </center>
+                    </div>
+                    <div class="panel-body">
+                        <div id="weatherPanel" class="fixed">
+                            <div class="fonts" style=padding-top:.2vh;> <b style="font-size: 2vh;">Madison</b> </div>
+                            <hr color="black" style="height:.4vh; margin-top: .5vh;">
+                            <center>
+                                <div class="weather">
+                                    <p id="weatherTemp" style="font-size: 8vh;"> </p>
+                                </div>
+                                <div id="weatherPic" class="weather">
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component__weather-box"></div>
+        </div>
+        <a href="http://www.helios-uw.com/">
+            <img src="admin/HeliosLogo.png" alt="GO WISCONSIN!" style="float: right;width:15%;height:15%">
+        </a>
+        </font>
+
+
+        <script>
+//TO ACTUALLY CONNECT TO BACKEND, CHANGE URLINIT TO CORRECT URL and go to line 534
+var urlInit = "http://127.0.0.1:8000/initialize";
+var urlBase = "http://127.0.0.1:8000/energyapi?timescale=";
+var urlWeather = 'http://api.openweathermap.org/data/2.5/weather?q=Madison&APPID=c8b07290a27f02e96c2277779d1591bd&units=imperial';
+
+//keeps track of what timescale the dashboard is displaying
+var timescale;
+//keeps track of analogy statements
+var firstStatement = "You could power ";
+var secondStatement = " lightbulbs for a day with the energy produced by these solar panels in a week";
+
+////////////////  
+//energy gauge//
+//////////////// 
+
+//options
+var gaugeOptions = {
+
+    chart: {
+        type: 'solidgauge'
+    },
+
+    title: null,
+
+    pane: {
+        center: ['50%', '90%'],
+        size: '180%',
+        startAngle: -90,
+        endAngle: 90,
+        background: {
+            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+            innerRadius: '60%',
+            outerRadius: '100%',
+            shape: 'arc'
+        }
+    },
+
+    tooltip: {
+      valueSuffix: '% energy'
+      },
+
+    // the value axis
+    yAxis: {
+        stops: [
+            [0.1, '#DF5353'], // red
+            [0.5, '#DDDF0D'], // yellow
+            [0.9, '#55BF3B'] // greem
+        ],
+        lineWidth: 0,
+        minorTickInterval: null,
+        tickAmount: 2,
+        title: {
+            y: -70
+        },
+        labels: {
+            y: 16
+        }
+    },
+
+    plotOptions: {
+        solidgauge: {
+            dataLabels: {
+                y: 5,
+                borderWidth: 0,
+                useHTML: true
+            }
+        }
+    }
+};
+
+// function to create energy gauge
+function drawGauge(energyLevel){
+var chartSpeed = Highcharts.chart('gauge', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 20,
+        title: {
+            text: ''
+        }
+    },
+
+    credits: {
+        enabled: false
+    },
+
+    series: [{
+        name: 'percentage',
+        data: [energyLevel],
+        dataLabels: {
+            format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+                   '<span style="font-size:12px;color:silver">% energy</span></div>'
+        },
+        tooltip: {
+            valueSuffix: '% energy'
+        }
+    }]
+
+}));
+}
+
+
+//////////////////////////////
+//draw google chart function//
+//////////////////////////////
+//create trigger to resizeEnd event     
+$(window).resize(function() {
+    //changer('https://api.myjson.com/bins/yishj');
+    changer(urlBase + timescale);
+    /*
+    if(timescale == "week")
+        changer('https://api.myjson.com/bins/yishj');
+    else if(timescale == "month")
+        changer('https://api.myjson.com/bins/lknmf');
+    else if(timescale == "year")
+        changer('https://api.myjson.com/bins/pxobn');
+    */
+
+});
+
+ google.charts.load('current', {packages: ['corechart', 'bar']});
+ google.charts.setOnLoadCallback(drawBasic);
+
+    function drawBasic() {
+        var data = new google.visualization.arrayToDataTable(timeChart);
+ var options = {
+        legend: { position: "none" },
+        hAxis : {textColor: '#ffffff '},
+        bars: 'vertical',
+                colors:['#11B29C'],
+
+        series: {
+            0: { axis: 'kWh' }, // Bind series 0 to an axis named 'distance'.
+          },
+        axes: {
+            y: {
+              kWh: {label: 'kWh'}, // Bottom x-axis.
+            }
+          }
+       };
+    
+
+      chart = new google.charts.Bar(
+        document.getElementById('chart_div'));
+        $(window).on('resizeEnd', function() {
+      //chart.draw(data, options);
+            chart.draw(data, options);
+      });
+    }
+
+function drawChart(timeChart){
+    var data = new google.visualization.arrayToDataTable(timeChart);
+ var options = {
+        legend: { position: "none" },
+        hAxis : {textColor: '#ffffff '},
+        bars: 'vertical',
+                colors:['#11B29C'],
+
+        series: {
+            0: { axis: 'kWh' }, // Bind series 0 to an axis named 'distance'.
+          },
+        axes: {
+            y: {
+              kWh: {label: 'kWh'}, // Bottom x-axis.
+            }
+          }
+       };
+    
+
+      var chart = new google.charts.Bar(
+        document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+}
+
+/////////////////////////////////////////////////
+//read initialization json data on startup and //
+//draw all the panels                          //
+/////////////////////////////////////////////////
+window.onload = function(){
+  initChanger(urlInit);
+  drawWeatherPanel(urlWeather);
+};
+
+////////////////////////////////////////////////////
+//Reseting every pannel every so many milliseconds//
+////////////////////////////////////////////////////
+var i = setInterval(function() { repeatUpdate(); }, 30000);
+
+function repeatUpdate() {
+    drawWeatherPanel('http://api.openweathermap.org/data/2.5/weather?q=Madison&APPID=c8b07290a27f02e96c2277779d1591bd&units=imperial');
+    changer(urlBase + timescale);
+
+}
+
+////////////////////////////////////////////////////
+//chart data for week, month (3 lengths), and year//
+////////////////////////////////////////////////////
+
+    var weekChart = [
+         ['', 'Value'],
+         ['Sunday', 0],         
+         ['Monday', 0],           
+         ['Tuesday', 0],
+         ['Wednesday', 0],
+         ['Thursday', 0],
+         ['Friday', 0],
+         ['Saturday', 0],
+      ];
+
+      var monthChart28 =[
+         ['', 'Value'],
+         ['1', 0],         
+         ['2', 0],           
+         ['3', 0],
+         ['4', 0],
+         ['5', 0],
+         ['6', 0],
+         ['7', 0],
+         ['8', 0],
+         ['9', 0],
+         ['10', 0],
+         ['11', 0],         
+         ['12', 0],           
+         ['13', 0],
+         ['14', 0],
+         ['15', 0],
+         ['16', 0],
+         ['17', 0],
+         ['18', 0],
+         ['19', 0],
+         ['20', 0],
+         ['21', 0],         
+         ['22', 0],           
+         ['23', 0],
+         ['24', 0],
+         ['25', 0],
+         ['26', 0],
+         ['27', 0],
+         ['28', 0],
+        ];
+
+      var monthChart30 =[
+         ['', 'Value'],
+         ['1', 0],         
+         ['2', 0],           
+         ['3', 0],
+         ['4', 0],
+         ['5', 0],
+         ['6', 0],
+         ['7', 0],
+         ['8', 0],
+         ['9', 0],
+         ['10', 0],
+         ['11', 0],         
+         ['12', 0],           
+         ['13', 0],
+         ['14', 0],
+         ['15', 0],
+         ['16', 0],
+         ['17', 0],
+         ['18', 0],
+         ['19', 0],
+         ['20', 0],
+         ['21', 0],         
+         ['22', 0],           
+         ['23', 0],
+         ['24', 0],
+         ['25', 0],
+         ['26', 0],
+         ['27', 0],
+         ['28', 0],
+         ['29', 0],
+         ['30', 0],
+        ];
+
+      var monthChart31 =[
+         ['', 'Value'],
+         ['1', 0],         
+         ['2', 0],           
+         ['3', 0],
+         ['4', 0],
+         ['5', 0],
+         ['6', 0],
+         ['7', 0],
+         ['8', 0],
+         ['9', 0],
+         ['10', 0],
+         ['11', 0],         
+         ['12', 0],           
+         ['13', 0],
+         ['14', 0],
+         ['15', 0],
+         ['16', 0],
+         ['17', 0],
+         ['18', 0],
+         ['19', 0],
+         ['20', 0],
+         ['21', 0],         
+         ['22', 0],           
+         ['23', 0],
+         ['24', 0],
+         ['25', 0],
+         ['26', 0],
+         ['27', 0],
+         ['28', 0],
+         ['29', 0],
+         ['30', 0],
+         ['31', 0],
+        ];
+
+      var yearChart =[
+         ['', 'Value'],
+         ['Jan', 0],         
+         ['Feb', 0],           
+         ['Mar', 0],
+         ['Apr', 0],
+         ['May', 0],
+         ['Jun', 0],
+         ['Jul', 0],
+         ['Aug', 0],
+         ['Sep', 0],
+         ['Oct', 0],
+         ['Nov', 0],
+         ['Dec', 0],
+        ];
+
+
+
+///////////////////////////////////////////////////
+//initChanger(url):                              //
+//  Reads data from the initialization url and   //
+//stores that data.  Decides which timescale to  //
+//use for drawing panels, calls changer() to     //
+//draw them.                                     //
+///////////////////////////////////////////////////
+
+    function initChanger(url){
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('GET', url);
+        ourRequest.onload = function() {
+            var ourData = JSON.parse(ourRequest.responseText);
+            console.log(ourData);
+            renderHTML(ourData);
+        };
+        ourRequest.send();
+
+        function renderHTML(data) {
+            timescale = data.timescale;
+            firstStatement = data.string1;
+            secondStatement = data.string2;
+            document.getElementById('analogyImage').src= data.imageURL;
+            console.log(data.imageURL);
+   //DELETE if/else and uncomment line below
+            changer(urlBase + timescale);
+          }
+    }
+
+///////////////////////////////////////////////////////////////////
+//Reads data from the url, clears old gauge and chart, draws new //
+//gauge and chart, and updates analogy and money saved           //
+///////////////////////////////////////////////////////////////////
+
+    function changer(url){
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('GET', url);
+        ourRequest.onload = function() {
+            var ourData = JSON.parse(ourRequest.responseText);
+            console.log(ourData);
+            renderHTML(ourData);
+        };
+        ourRequest.send();
+
+        function renderHTML(data) {
+            var chartlength = data.values.length;
+            var chart;
+            switch(chartlength){
+                case 7:
+                    timescale = "week";
+                    chart = weekChart;
+                    break;
+                case 12:
+                    timescale = "year";
+                    chart = yearChart;
+                    break;
+                case 28:
+                    timescale = "month";
+                    chart = monthChart28;
+                    break;
+                case 30:
+                    timescale = "month";
+                    chart = monthChart30;
+                    break;
+                case 31:
+                    timescale = "month";
+                    chart = monthChart31;
+                    break;
+            }
+        
+
+            //clearing guage and chart panels before writing new data
+            $('#gauge').empty();
+            $('#chart_div').empty();
+
+            //loading in new week data for chart
+            for(i = 0; i < chartlength; i++)
+                chart[i+1][1] = parseInt(data.values[i]);
+
+            //creating new chart
+            drawChart(chart);
+
+            //drawing new gauge
+            drawGauge(parseInt(data.percentage));
+
+            //writing new analogy sentenc
+            document.getElementById("enAnalogy").innerHTML = firstStatement + " " + parseInt(data.energyAnalogyValue) + " " + secondStatement;
+
+            //writing new cost sentence
+           document.getElementById("cost").innerHTML = "$" + parseInt(data.moneySaved) + " saved last " + timescale;
+        }
+     }
+
+//draws/redraws weather panel
+function drawWeatherPanel(url){
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('GET', url);
+        ourRequest.onload = function() {
+            var ourData = JSON.parse(ourRequest.responseText);
+            console.log(ourData);
+            renderHTML(ourData);
+        };
+        ourRequest.send();
+
+        function renderHTML(data) {
+            var weatherId = data.weather[0].id;
+            var seconds = new Date() / 1000;
+            if(weatherId < 300)
+              weatherImage = "img/thunderstorm.png";
+            else if(weatherId < 600)
+              weatherImage = "img/raining.png";
+            else if(weatherId < 700)
+              weatherImage = "img/snowing.png";
+            else if(weatherId == 800){
+                  if((seconds < data.sys.sunrise) || (seconds > data.sys.sunset))
+                      weatherImage = "img/moon.png";
+                  else
+                    weatherImage = "img/sunny.png";
+            }
+            else if(weatherId < 803)
+              weatherImage = "img/partlyCloudy.png";
+            else
+              weatherImage = "img/cloudy.png";
+
+            $("#weatherPic").html(" <img src=" + weatherImage + ' style="height:23vh"> ');
+            $("#weatherTemp").html(Math.round(data.main.temp) + " &#176;&nbsp;");
+        }
+     }
+</script>
+</body>
+
+</html>
